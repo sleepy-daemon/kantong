@@ -8,7 +8,7 @@
     "userInterfaceStyle": "dark",
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.yourname.kantong"
+      "bundleIdentifier": "com.sleepydaemon.kantong"
     },
     "android": {
       "adaptiveIcon": {
@@ -18,7 +18,7 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.yourname.kantong"
+      "package": "com.sleepydaemon.kantong"
     },
     "web": {
       "favicon": "./assets/favicon.png"

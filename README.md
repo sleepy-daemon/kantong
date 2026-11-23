@@ -129,5 +129,26 @@ supabase/
 To install the app on a phone without Expo Go, make a build with [EAS](https://docs.expo.dev/build/introduction/):
 
 ```sh
-npx eas-cli@latest build --profile development --platform android
+npx eas-cli@latest build --profile preview --platform android
 ```
+
+The `preview` profile produces an `.apk` you can install directly. Before the first build, add the two `EXPO_PUBLIC_*` variables to EAS, because `.env.local` isn't uploaded:
+
+```sh
+npx eas-cli@latest env:create --environment preview --visibility plaintext --name EXPO_PUBLIC_SUPABASE_URL --value https://<your-project-ref>.supabase.co
+npx eas-cli@latest env:create --environment preview --visibility plaintext --name EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY --value sb_publishable_...
+```
+
+## Keep the backend awake
+
+Supabase pauses free projects after about a week without activity. The [Keep Supabase awake](.github/workflows/keep-alive.yml) workflow sends one request every 3 days. It needs two repository secrets, `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`.
+
+GitHub turns off scheduled workflows in repositories with no activity for 60 days, and emails you first. If that happens, re-enable the workflow from the **Actions** tab.
+
+## Privacy
+
+See the [privacy policy](PRIVACY.md).
+
+## License
+
+[MIT](LICENSE)
